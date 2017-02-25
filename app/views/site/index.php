@@ -24,7 +24,7 @@ $this->title = $page->seo('title', $page->model->title);
 <hr/>
 
 <div class="text-center">
-    <h2>Last photos</h2>
+    <h2><?=Yii::t('app', 'Last photos')?></h2>
     <br/>
     <?php foreach(Gallery::last(6) as $photo) : ?>
         <?= $photo->box(180, 135) ?>
@@ -36,7 +36,7 @@ $this->title = $page->seo('title', $page->model->title);
 <hr/>
 
 <div class="text-center">
-    <h2>Last news</h2>
+    <h2><?=Yii::t('app', 'Last news')?></h2>
     <blockquote class="text-left">
         <?= Html::a(News::last()->title, ['news/view', 'slug' => News::last()->slug]) ?>
         <br/>
@@ -48,36 +48,5 @@ $this->title = $page->seo('title', $page->model->title);
 <hr/>
 
 
-<div class="text-center">
-    <h2>Last article from category #1</h2>
-    <br/>
-    <div class="row text-left">
-        <?php $article = Article::last(1, ['category_id' => 1]); ?>
-        <div class="col-md-2">
-            <?= Html::img($article->thumb(160, 120)) ?>
-        </div>
-        <div class="col-md-10 text-left">
-            <?= Html::a($article->title, ['articles/view', 'slug' => $article->slug]) ?>
-            <br/>
-            <?= $article->short ?>
-        </div>
-    </div>
-</div>
-
-<br/>
-<hr/>
-
-<div class="text-center">
-    <h2>Last reviews</h2>
-    <br/>
-    <div class="row text-left">
-        <?php foreach(Guestbook::last(2) as $post) : ?>
-            <div class="col-md-6">
-                <b><?= $post->name ?></b>
-                <p class="text-muted"><?= $post->text ?></p>
-            </div>
-        <?php endforeach;?>
-    </div>
-</div>
 
 <br/>
